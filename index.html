@@ -158,16 +158,102 @@
 }
 .video-details summary::-webkit-details-marker{ display:none; }
 
+/* ✅ 우측 상단 로그인 버튼 */
+.top-actions{
+  position: fixed;           /* 스크롤해도 고정 */
+  top: 22px;
+  right: 22px;
+  z-index: 50;
+}
+
+.login-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(230,224,217,0.95);
+  background: rgba(255,255,255,0.72);
+  color: #4a4a4a;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 14px 35px rgba(20,16,10,0.10);
+  backdrop-filter: blur(10px);
+  transition: transform .15s ease, background .15s ease;
+}
+
+.login-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.86);
+}
+
+.login-dot{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7b7b7b;
+  opacity: .7;
+}
+
+
+/* ✅ 학사 타임라인 (감성 리스트) */
+.edu{
+  border-left: 2px solid var(--line);
+  padding-left: 20px;
+}
+
+.edu-item{
+  margin-bottom: 28px;
+}
+
+.edu-year{
+  display:block;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: .2px;
+  margin-bottom: 6px;
+}
+
+.edu-text{
+  font-size: 16px;
+  color: #353535;
+  line-height: 1.7;
+}
+
+.login-btn{
+  cursor: pointer;
+  border: 1px solid rgba(230,224,217,0.95);
+}
+
   </style>
+<script>
+
+function goLogin(){
+
+  alert("현재권한이 없습니다.관라에게 문의 010-7733-4447");
+  //alert("현재개발중입니다.");
+  //alert("인터넷 가입후 이용 가능 합니다. 인터넷 변경 가입 안내 전화 010-7733-4447");
+
+}
+
+</script>
 </head>
+
+
 <body>
 
   <div class="container">
+ <button type="button" class="login-btn" onclick="goLogin()">
+  <span class="login-dot"></span>
+  로그인
+</button>
+
+
 
     <!-- HERO -->
     <div class="hero">
       <h1>쑥쑥이의 첫 기록</h1>
-      <div class="date">2026년 1월 · 세상에 온 날</div>
+      <div class="date">2025년 12월 17일· 세상에 온 날</div>
     </div>
 
     <!-- ✅ 영상 -->
@@ -218,9 +304,14 @@
       <div class="section-title">앞으로의 시간</div>
       <div class="timeline">
         <div class="timeline-item">
-          <span>2026</span>
+          <span>2025.12.17</span>
           첫 울음, 첫 미소
         </div>
+        <div class="timeline-item">
+          <span>2026.03.27</span>
+            100일
+        </div>
+        
         <div class="timeline-item">
           <span>2030</span>
           유치원에서 돌아온 어느 날
@@ -231,6 +322,34 @@
         </div>
       </div>
     </section>
+
+
+    <!-- ✅ 학사 타임라인 -->
+<section>
+  <div class="section-title">앞으로의 큰 날들</div>
+  <div class="edu">
+    <div class="edu-item">
+      <span class="edu-year">2032</span>
+      <div class="edu-text">초등학교 입학식</div>
+    </div>
+    <div class="edu-item">
+      <span class="edu-year">2038</span>
+      <div class="edu-text">중학교 입학</div>
+    </div>
+    <div class="edu-item">
+      <span class="edu-year">2041</span>
+      <div class="edu-text">고등학교 입학</div>
+    </div>
+    <div class="edu-item">
+      <span class="edu-year">2044</span>
+      <div class="edu-text">대학교 입학</div>
+    </div>
+    <div class="edu-item">
+      <span class="edu-year">2048</span>
+      <div class="edu-text">졸업, 그리고 또 다른 시작</div>
+    </div>
+  </div>
+</section>
 
     <footer>
       이 기록은 사랑으로 만들어졌습니다.
