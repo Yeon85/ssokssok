@@ -225,8 +225,145 @@
   border: 1px solid rgba(230,224,217,0.95);
 }
 
+
+/* 💗 사랑 버튼 */
+.love-btn{
+  display:inline-block;
+  margin-top: 18px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(230,224,217,0.9);
+  background: rgba(255,255,255,0.85);
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* 💖 하트 팝 */
+.love-float{
+  position: fixed;
+  bottom: 90px;
+  right: 40px;
+  width: 64px;
+  pointer-events: none;
+  animation: floatUp 2.8s ease-out forwards;
+  z-index: 999;
+}
+
+.love-float img{
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.love-float::after{
+  content: "💗";
+  position: absolute;
+  right: -10px;
+  top: -12px;
+  font-size: 22px;
+}
+
+
+/* 💗 사랑 영역 */
+.love-wrap{
+  text-align: center;
+  margin-top: 24px;
+}
+
+.love-btn{
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(230,224,217,0.9);
+  background: rgba(255,255,255,0.85);
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.love-info{
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+.love-date{
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+
+
+@keyframes floatUp{
+  0%{ opacity:0; transform: translateY(0) scale(0.8); }
+  20%{ opacity:1; }
+  100%{ opacity:0; transform: translateY(-140px) scale(1.2); }
+}
+
+
+
   </style>
 <script>
+const LOVE_KEY = 'ssukssuk_love_count';
+const DATE_KEY = 'ssukssuk_love_date';
+
+// 초기 로드
+document.addEventListener('DOMContentLoaded', () => {
+  updateLoveUI();
+});
+
+function popLove(){
+  // 💗 카운트 증가
+  let count = Number(localStorage.getItem(LOVE_KEY) || 0);
+  count++;
+  localStorage.setItem(LOVE_KEY, count);
+
+  // 📅 오늘 날짜 저장
+  const today = new Date().toISOString().slice(0,10);
+  localStorage.setItem(DATE_KEY, today);
+
+  // 🎵 효과음
+  const sound = document.getElementById('loveSound');
+  if(sound){
+    sound.currentTime = 0;
+    sound.play();
+  }
+
+  // 💖 하트 애니메이션
+  spawnHeart();
+
+  updateLoveUI();
+}
+
+function updateLoveUI(){
+  const count = Number(localStorage.getItem(LOVE_KEY) || 0);
+  const date = localStorage.getItem(DATE_KEY);
+
+  document.getElementById('loveCount').innerText =
+    ` 사랑을 ${count.toLocaleString()}번 눌렀어요`;
+
+  if(date){
+    document.getElementById('loveDate').innerText =
+      `총 사랑을 눌렀어요 · ${date}`;
+  }
+}
+
+// 💖 하트 뿅
+function spawnHeart(){
+  const heart = document.createElement('div');
+  heart.className = 'love-float';
+  heart.innerText = '💗';
+
+  heart.style.left = Math.random() * 60 + 20 + 'vw';
+  heart.style.bottom = '80px';
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 2000);
+}
+
+
 
 function goLogin(){
 
@@ -247,9 +384,13 @@ function goLogin(){
     <span class="login-dot"></span>
     로그인
   </button>
+  <button class="love-btn" onclick="popLove()">
+  💗 사랑 눌러보기
+</button>
+
 </div>
 
-  
+
   
   
   <div class="container">
@@ -268,6 +409,19 @@ function goLogin(){
           이 브라우저는 영상을 지원하지 않습니다.
         </video>
       </div>
+
+      <div class="love-wrap">
+  <button class="love-btn" onclick="popLove()">💗 사랑 눌러보기</button>
+
+  <div class="love-info">
+    <div id="loveCount">이모가 사랑을 0번 눌렀어요</div>
+    <div id="loveDate" class="love-date"></div>
+  </div>
+</div>
+
+<!-- 효과음 -->
+<audio id="loveSound" src="media/pop.mp3" preload="auto"></audio>
+
     </section>
 
     <!-- 출생 이야기 -->
@@ -275,7 +429,7 @@ function goLogin(){
       <div class="section-title">태어난 날의 이야기</div>
       <div class="card">
         <p>
-          2026년 1월, 작은 숨소리와 함께 쑥쑥이가 우리에게 왔어요.<br>
+          2025년 12월, 작은 숨소리와 함께 쑥쑥이가 우리에게 왔어요.<br>
           세상에 처음 인사하던 그날의 공기와 온도를 우리는 오래 기억하려 합니다.
         </p>
       </div>
