@@ -158,10 +158,10 @@
 }
 .video-details summary::-webkit-details-marker{ display:none; }
 
-/* ✅ 우측 상단 로그인 버튼 */
-.top-actions{
+/* ✅ 우측 하단 로그인 버튼 */
+.bottom-actions{
   position: fixed;           /* 스크롤해도 고정 */
-  top: 22px;
+  bottom: 22px;
   right: 22px;
   z-index: 50;
 }
@@ -234,7 +234,7 @@ function goLogin(){
   //alert("현재개발중입니다.");
   //alert("인터넷 가입후 이용 가능 합니다. 인터넷 변경 가입 안내 전화 010-7733-4447");
 
-  
+
 }
 
 </script>
@@ -242,14 +242,17 @@ function goLogin(){
 
 
 <body>
+<div class="bottom-actions">
+  <button type="button" class="login-btn" onclick="goLogin()">
+    <span class="login-dot"></span>
+    로그인
+  </button>
+</div>
 
+  
+  
+  
   <div class="container">
- <button type="button" class="login-btn" onclick="goLogin()">
-  <span class="login-dot"></span>
-  로그인
-</button>
-
-
 
     <!-- HERO -->
     <div class="hero">
