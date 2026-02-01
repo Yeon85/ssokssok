@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>쑥쑥이의 첫 기록</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 감성 폰트 -->
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* ✅ 고급 크림/그레이지 톤 */
+      --bg1:#fbfaf8;
+      --bg2:#f3f1ee;
+      --text:#2f2f2f;
+      --muted:#7f7f7f;
+      --line:#e6e0d9;
+      --card:rgba(255,255,255,0.78);
+      --shadow: 0 20px 45px rgba(20, 16, 10, 0.06);
+      --shadow-strong: 0 26px 60px rgba(20, 16, 10, 0.12);
+      --radius:18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Pretendard', sans-serif;
+      background: radial-gradient(1200px 600px at 50% 0%, #ffffff 0%, var(--bg1) 40%, var(--bg2) 100%);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 24px 120px;
+    }
+
+    /* 헤더 */
+    .hero {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .hero h1 {
+      font-family: 'Gowun Batang', serif;
+      font-size: 42px;
+      font-weight: 400;
+      margin: 0 0 12px;
+      letter-spacing: -0.6px;
+    }
+
+    .hero .date {
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 0.2px;
+    }
+
+    /* 공통 섹션 */
+    section { margin-bottom: 76px; }
+
+    .section-title {
+      font-family: 'Gowun Batang', serif;
+      font-size: 24px;
+      margin-bottom: 22px;
+      letter-spacing: -0.3px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(230,224,217,0.8);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .card p {
+      line-height: 1.85;
+      font-size: 16px;
+      margin: 0;
+      color: #353535;
+    }
+
+    /* ✅ 영상 프레임 (고급스럽게) */
+    .media-frame{
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(230,224,217,0.9);
+      box-shadow: var(--shadow-strong);
+      background: #e9e6e2;
+    }
+    video{
+      width: 100%;
+      display: block;
+    }
+
+    /* 타임라인 */
+    .timeline {
+      border-left: 2px solid var(--line);
+      padding-left: 20px;
+    }
+
+    .timeline-item { margin-bottom: 30px; }
+
+    .timeline-item span {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      letter-spacing: 0.2px;
+    }
+
+    /* 푸터 */
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #8f8f8f;
+      margin-top: 110px;
+    }
+
+    /* ✅ 대표 사진 프레임 */
+.photo-frame{
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(230,224,217,0.9);
+  box-shadow: var(--shadow-strong);
+  background: #e9e6e2;
+}
+.photo-frame img{
+  width: 100%;
+  height: min(72vh, 640px);
+  object-fit: cover;
+  display: block;
+}
+.photo-caption{
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--muted);
+  background: rgba(255,255,255,0.75);
+  border-top: 1px solid rgba(230,224,217,0.75);
+}
+
+/* ✅ 영상 접기(선물용) */
+.video-details{
+  border: 1px solid rgba(230,224,217,0.85);
+  border-radius: 18px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.55);
+  box-shadow: var(--shadow);
+}
+.video-details summary{
+  cursor: pointer;
+  font-size: 14px;
+  color: #5b5b5b;
+  list-style: none;
+}
+.video-details summary::-webkit-details-marker{ display:none; }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <h1>쑥쑥이의 첫 기록</h1>
+      <div class="date">2026년 1월 · 세상에 온 날</div>
+    </div>
+
+    <!-- ✅ 영상 -->
+    <section>
+      <div class="media-frame">
+        <video controls playsinline preload="metadata" poster="">
+          <source src="media/birth.mp4" type="video/mp4" />
+          이 브라우저는 영상을 지원하지 않습니다.
+        </video>
+      </div>
+    </section>
+
+    <!-- 출생 이야기 -->
+    <section>
+      <div class="section-title">태어난 날의 이야기</div>
+      <div class="card">
+        <p>
+          2026년 1월, 작은 숨소리와 함께 쑥쑥이가 우리에게 왔어요.<br>
+          세상에 처음 인사하던 그날의 공기와 온도를 우리는 오래 기억하려 합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 부모의 편지 -->
+    <section>
+      <div class="section-title">엄마 · 아빠의 편지</div>
+      <div class="card">
+        <p>
+          사랑하는 쑥쑥아.<br>
+          너를 만난 순간, 세상이 조금 더 부드러워졌단다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 이모의 편지 -->
+    <section>
+      <div class="section-title">이모가 남기는 첫 기록</div>
+      <div class="card">
+        <p>
+          쑥쑥아, 이 페이지는 이모가 매년 하나씩 채워갈 거야.<br>
+          네가 얼마나 사랑받으며 자랐는지, 나중에 꼭 보여주고 싶거든.
+        </p>
+      </div>
+    </section>
+
+    <!-- 타임라인 -->
+    <section>
+      <div class="section-title">앞으로의 시간</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span>2026</span>
+          첫 울음, 첫 미소
+        </div>
+        <div class="timeline-item">
+          <span>2030</span>
+          유치원에서 돌아온 어느 날
+        </div>
+        <div class="timeline-item">
+          <span>2046</span>
+          이 페이지를 다시 열어볼 날
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      이 기록은 사랑으로 만들어졌습니다.
+    </footer>
+
+  </div>
+
+</body>
+</html>
